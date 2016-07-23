@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
 import sys
-f = open(sys.argv[1], 'r')
-f = open(sys.argv[1]+'roman', 'w')
-d2r_dict=[
+fin = open(sys.argv[1], 'r')
+fout = open(sys.argv[1]+'roman', 'w')
+d2r_dict={
 'क':'ka', 
 'ख':'kha', 
 'ग':'ga', 
@@ -94,10 +94,13 @@ d2r_dict=[
 'ै':'ai', 
 'ो':'o', 
 'ौ':'au'
-] 
+}
 
 def main():
-  print(f.read()) 
+  text=fin.read() 
+  for key,value in d2r_dict.items():
+    text=text.replace(key,value)
+  print(text)
 
 if __name__ == '__main__':
   main()
